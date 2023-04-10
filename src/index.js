@@ -1,5 +1,6 @@
 import readlineSync from 'readline-sync';
 import brainGame from './cli.js';
+import getRandomNumber from './random-number.js';
 
 export default function gameLogics(rules, questionInGame, correctAnswer) {
     const name = brainGame();

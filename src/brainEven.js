@@ -1,12 +1,8 @@
 import gameLogics from './index.js';
-
-function num() {
-  const number = (Math.round(Math.random() * 100));
-  return number;
-}
+import getRandomNumber from './random-number.js';
 
 const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
-const questionInGame = num();
+const questionInGame = getRandomNumber();
 let rightAnswer;
 
 export default function brainEven() {
