@@ -1,5 +1,5 @@
-import gameLogics from './index.js';
-import getRandomNumber from './random-number.js';
+import gameLogics from '../index.js';
+import { getRandomNumber } from '../random-number.js';
 
 const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
 let rightAnswer;
@@ -14,6 +14,6 @@ const generateRound = () => {
   return [questionInGame, rightAnswer];
 };
 
-export default function brainEven() {
-gameLogics(rules, generateRound);
+export default function even() {
+  gameLogics(rules, generateRound);
 }
