@@ -1,18 +1,18 @@
 import gameLogics from '../index.js';
 import { getRandomNumber } from '../random-number.js';
 
-const rules = 'Find the greatest common divisor of given numbers.';
+const description = 'Find the greatest common divisor of given numbers.';
 
-const getCommonDivisor = (x, y) => (y === 0 ? x : getCommonDivisor(y, x % y));
+const getGcd = (x, y) => (y === 0 ? x : getGcd(y, x % y));
 
-const generateRound = () => {
+const getAnswerAndQuestion = () => {
   const number1 = getRandomNumber();
   const number2 = getRandomNumber();
   const questionInGame = `${number1} ${number2}`;
-  const rightAnswer = getCommonDivisor(number1, number2).toString();
+  const rightAnswer = getGcd(number1, number2).toString();
   return [questionInGame, rightAnswer];
 };
 
 export default function gcd() {
-  gameLogics(rules, generateRound);
+  gameLogics(description, getAnswerAndQuestion);
 }

@@ -1,8 +1,7 @@
-#!/usr/bin/env node
 import { getRandomNumber, getRandomIndex } from '../random-number.js';
 import gameLogics from '../index.js';
 
-const rules = 'What is the result of the expression?';
+const description = 'What is the result of the expression?';
 const operators = ['+', '-', '*'];
 
 const calculate = (x, y, operator) => {
@@ -18,7 +17,7 @@ const calculate = (x, y, operator) => {
   }
 };
 
-const generateRound = () => {
+const getAnswerAndQuestion = () => {
   const number1 = getRandomNumber();
   const number2 = getRandomNumber();
   const operator = operators[getRandomIndex(operators)];
@@ -28,5 +27,5 @@ const generateRound = () => {
 };
 
 export default function calc() {
-  gameLogics(rules, generateRound);
+  gameLogics(description, getAnswerAndQuestion);
 }

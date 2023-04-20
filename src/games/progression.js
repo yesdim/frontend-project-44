@@ -1,7 +1,7 @@
 import gameLogics from '../index.js';
 import { getRandomNumber, getRandomIndex } from '../random-number.js';
 
-const rules = 'What number is missing in the progression?';
+const description = 'What number is missing in the progression?';
 
 const buildProgression = (length, start, step) => {
   const progressionMassive = [];
@@ -11,8 +11,9 @@ const buildProgression = (length, start, step) => {
   return progressionMassive;
 };
 
-const generateRound = () => {
-  const length = 10;
+const length = 10;
+
+const getAnswerAndQuestion = () => {
   const start = getRandomNumber();
   const step = getRandomNumber();
   const progressionMassive = buildProgression(length, start, step);
@@ -24,5 +25,5 @@ const generateRound = () => {
 };
 
 export default function progression() {
-  gameLogics(rules, generateRound);
+  gameLogics(description, getAnswerAndQuestion);
 }

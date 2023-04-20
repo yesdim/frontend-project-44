@@ -1,27 +1,23 @@
 import gameLogics from '../index.js';
 import { getRandomNumber } from '../random-number.js';
 
-const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isNumberPrime = (number) => {
-  let result = 'yes';
   for (let i = 2; i < number; i += 1) {
-    if (number % i === 0) {
-      result = 'no';
+    if (number % i === 0 || number === 1) {
+      return false;
     }
   }
-  if (number === 1) {
-    result = 'no';
-  }
-  return result;
+  return true;
 };
 
-const generateRound = () => {
+const getAnswerAndQuestion = () => {
   const questionInGame = getRandomNumber();
-  const rightAnswer = isNumberPrime(questionInGame);
+  const rightAnswer = isNumberPrime(questionInGame) ? 'yes' : 'no';
   return [questionInGame, rightAnswer];
 };
 
 export default function prime() {
-  gameLogics(rules, generateRound);
+  gameLogics(description, getAnswerAndQuestion);
 }
